@@ -1,0 +1,1 @@
+This is the version 2 of the Guidance office web application that is built using Laravel. This project is currently in development and not yet published on the Internet.
