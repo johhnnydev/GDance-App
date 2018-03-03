@@ -17,8 +17,8 @@
 							<td><b>Agenda</b></td>
 							<td><b>Date</b></td>
 							<td><b>Time</b></td>
-							<td><b>User</b></td>					
-							<td><b>Status</b></td>
+							<td><b>Status</b></td>					
+							<td><b>User</b></td>
 							<td></td>						
 						</tr>
 					</thead>
@@ -53,8 +53,8 @@
 						<td><b>Agenda</b></td>
 						<td><b>Date</b></td>
 						<td><b>Time</b></td>
-						<td><b>User</b></td>						
-						<td><b>Status</b></td>	
+						<td><b>Status</b></td>						
+						<td><b>User</b></td>	
 						<td></td>					
 					</tr>
 				</thead>
@@ -89,8 +89,8 @@
 							<td><b>Agenda</b></td>
 							<td><b>Date</b></td>
 							<td><b>Time</b></td>
-							<td><b>User</b></td>						
-							<td><b>Status</b></td>	
+							<td><b>Status</b></td>						
+							<td><b>User</b></td>	
 							<td></td>					
 						</tr>
 					</thead>
