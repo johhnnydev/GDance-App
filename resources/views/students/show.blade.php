@@ -682,16 +682,74 @@
 							<td><b>Sanction Given</b></td>
 							<td><b>Date Issued</b></td>
 							<td><b>Time Issued</b></td>
+							<td></td>
 						</tr>
 					</thead>
 					<tbody>
 						@foreach($violations as $violation)
 							<tr>
-								<td>{{ $violation->nature_offense }}</td>
+								@if($violation->nature_offense == '1')
+									<td>Failing to proper wear valid ID card while inside the school.</td>
+								@elseif($violation->nature_offense == '2')
+									<td>Using for official school purposes or transaction own ID card, which is neither authorized nor valid.</td>
+								@elseif($violation->nature_offense == '3')
+									<td>Unauthorized stay in, or entry to the school after 9:00 PM.</td>
+								@elseif($violation->nature_offense == '4')
+									<td>Littering</td>
+								@elseif($violation->nature_offense == '5')
+									<td>Unauthorized posting/distributing of leaflets, posters, questionnaires, surveys or similar materials.</td>
+								@elseif($violation->nature_offense == '6')
+									<td>Defamation</td>
+								@elseif($violation->nature_offense == '7')
+									<td>Possession of material that is offensive to morals, contrary to law, public order, good custom, and school policies.</td>
+								@elseif($violation->nature_offense == '8')
+									<td>Engaging in lewd, indecent, obscene, immoral or provocative conduct.</td>
+								@elseif($violation->nature_offense == '9')
+									<td>Stealing</td>
+								@elseif($violation->nature_offense == '10')
+									<td>Bribery</td>
+								@elseif($violation->nature_offense == '11')
+									<td>Possession of dangerous stuff.</td>	
+								@elseif($violation->nature_offense == '12')
+									<td>Destruction of property.</td>
+								@elseif($violation->nature_offense == '13')
+									<td>Deceit</td>
+								@elseif($violation->nature_offense == '14')
+									<td>Possession of alcoholic beverages; entering the school in a state of intoxication.</td>
+								@elseif($violation->nature_offense == '15')
+									<td>Using, possessing, or distributing illicit drugs.</td>
+								@elseif($violation->nature_offense == '16')
+									<td>Possessing, distributing or selling cpoies of offensive, obscene, or harrasing magazines.</td>
+								@elseif($violation->nature_offense == '17')
+									<td>Assault</td>
+								@elseif($violation->nature_offense == '18')
+									<td>Gambling</td>
+								@elseif($violation->nature_offense == '19')
+									<td>Forgery</td>
+								@elseif($violation->nature_offense == '20')
+									<td>Obstruction</td>
+								@elseif($violation->nature_offense == '21')
+									<td>Threat</td>
+								@elseif($violation->nature_offense == '22')
+									<td>Unauthorized use of school facility.</td>
+								@elseif($violation->nature_offense == '23')
+									<td>Unauthorized use of school's name.</td>
+								@elseif($violation->nature_offense == '24')
+									<td>Cheating</td>
+								@elseif($violation->nature_offense == '25')
+									<td>Abusive behavior</td>
+								@elseif($violation->nature_offense == '26')
+									<td>Indecency</td>
+								@elseif($violation->nature_offense == '27')
+									<td>Poor sportsmanship.</td>
+								@else
+									<td>nothing</td>
+								@endif
 								<td>{{ $violation->freq_offense }}</td>
 								<td>{{ $violation->sanction_given }}</td>							
 								<td>{{ date('F j, Y', strtotime($violation->created_at)) }}</td>
 								<td>{{ date('g:i a', strtotime($violation->created_at)) }}</td>							
+								<td><a href="/violation/{{ $violation->id }}/edit"><div class="btn btn-outline-primary btm-sm">Edit</div></a></td>							
 							</tr>
 						@endforeach
 					</tbody>

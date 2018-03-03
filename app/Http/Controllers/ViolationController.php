@@ -119,12 +119,12 @@ class ViolationController extends Controller
     public function edit($id)
     {
         $violation = Violation::find($id);
-        if($violation == NULL){
-            return view('errors.nocantdo');            
+        if($violation == NULL){     
+            return 'violation empty';            
         }elseif (Auth::user()->is_admin == True) {
-            return view('violation.edit')->with('success', 'Successful');
+            return view('violation.edit')->with('violation', $violation);
         }else{
-            return view('errors.nocantdo');            
+            return 'not an admin';            
         }
     }
 
@@ -137,23 +137,16 @@ class ViolationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // TODO:
-        // YO WHAT IS THIS?
-        // get the user id of the user entered
-        $name = $request->input('searchname');
-        $user = User::where('name', 'LIKE', '%'.$name.'%')->first();
-        // return $user->id;
-        
         $violation = Violation::find($id);
-        $violation->user_name = $request->input('searchname');
+        $violation->user_name = $request->input('usn');
         $violation->grade_section = $request->input('grade_section');
         $violation->nature_offense = $request->input('nature_offense');
         $violation->freq_offense = $request->input('freq_offense');
         $violation->sanction_given = $request->input('sanction_given');
-        $violation->user_id = $user->id;
+        // $violation->user_id = $user->id;
         // return $violation;
         $violation->save();
-        return redirect('/violation')->with('success', 'Successful'); 
+        return back()->with('message', 'Successful'); 
     }
 
     /**

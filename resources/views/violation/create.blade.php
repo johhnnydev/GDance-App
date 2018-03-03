@@ -32,6 +32,46 @@
 					</div>
 				</div>
 			</div>
+			
+			<div class="form-row">
+				<div class="col">
+				    {{Form::label('nature_offense', 'Nature of Offense', ['class' => 'col-form-label'])}}
+				    {{-- <input placeholder="Nature of Offense" class="form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}" type="number" name="nature_offense" min="1" max="27"> --}}
+				    <select name="nature_offense" class="custom-select form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}">
+				    	<option selected="selected" value>Nature of Offense</option>
+				    	<option value="1">Failing to proper wear valid ID card while inside the school.</option>
+				    	<option value="2">Using for official school purposes or transaction own ID card, which is neither authorized nor valid.</option>
+				    	<option value="3">Unauthorized stay in, or entry to the school after 9:00 PM.</option>
+				    	<option value="4">Littering</option>
+				    	<option value="5">Unauthorized posting/distributing of leaflets, posters, questionnaires, surveys or similar materials.</option>
+				    	<option value="6">Defamation</option>
+				    	<option value="7">Possession of material that is offensive to morals, contrary to law, public order, good custom, and school policies.</option>
+				    	<option value="8">Engaging in lewd, indecent, obscene, immoral or provocative conduct.</option>
+				    	<option value="9">Stealing</option>
+				    	<option value="10">Bribery</option>
+				    	<option value="11">Possession of dangerous stuff.</option>
+				    	<option value="12">Destruction of property.</option>
+				    	<option value="13">Deceit</option>
+				    	<option value="14">Possession of alcoholic beverages; entering the school in a state of intoxication.</option>
+				    	<option value="15">Using, possessing, or distributing illicit drugs.</option>
+				    	<option value="16">Possessing, distributing or selling cpoies of offensive, obscene, or harrasing magazines.</option>
+				    	<option value="17">Assault</option>
+				    	<option value="18">Gambling</option>
+				    	<option value="19">Forgery</option>
+				    	<option value="20">Obstruction</option>
+				    	<option value="21">Threat</option>
+				    	<option value="22">Unauthorized use of school facility.</option>
+				    	<option value="23">Unauthorized use of school's name.</option>
+				    	<option value="24">Cheating</option>
+				    	<option value="25">Abusive behavior</option>
+				    	<option value="26">Indecency</option>
+				    	<option value="27">Poor sportsmanship.</option>
+				    </select>
+                    <div class="invalid-feedback">
+                        {{ $errors->first('nature_offense') }}
+                    </div>
+				</div>
+			</div>
 
 			<div class="form-row">
 				<div class="col">
@@ -41,15 +81,6 @@
                         {{ $errors->first('grade_section') }}
 					</div>
 					{{-- {{Form::text('grade_section', '', ['id' => 'section', 'class' => 'form-control', 'placeholder' => 'Grade/Year & Section'])}} --}}
-				</div>
-
-				<div class="col">
-				    {{Form::label('nature_offense', 'Nature of Offense', ['class' => 'col-form-label'])}}
-				    <input placeholder="Nature of Offense" class="form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}" type="number" name="nature_offense" min="1" max="27">
-                    <div class="invalid-feedback">
-                        {{ $errors->first('nature_offense') }}
-                    </div>
-				    {{-- {{Form::select('nature_offense', ['1' => '1. ID 1', '2' => '2. ID 2', '3' => '3. unauthorized stay in', '4' => '4. littering', '5' => '6. unauthorized posting', '6' => '6. defamation', '7' => '7. offensive materials', '8' => '8. lewd acts', '9' => '9. stealing', '10' => '10. bribing', '11' => '11. possesion of explosive/weapon', '12' => '12. intetional misuse of school property ', '13' => '13. deceit', '14' => '14. alcohol', '15' => '15. illicit drugs', '16' => '16. lewd materials', '17' => '17. assault', '18' => '18. gambling', '19' => '19. forging school documents', '20' => '20. obstruction', '21' => '21. threat', '22' => '22. unauthorized activities', '23' => '23. unauthorized use of school name', '24' => '24. cheating', '25' => '25. abusive behavior', '26' => '26. anglabooo', '27' => '27. unsportsmanlike foul'], null, ['class' => 'form-control', 'placeholder' => 'Nature of Offense'])}} --}}
 				</div>
 
 				<div class="col">
