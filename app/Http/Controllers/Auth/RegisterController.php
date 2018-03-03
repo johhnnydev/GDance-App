@@ -51,6 +51,14 @@ class RegisterController extends Controller
         // $this->middleware('guest');
     }
 
+    // override stuff
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        event(new Registered($user = $this->create($request->all())));
+        return redirect('/users')->with('message', 'User created succesfully');
+    }
+
     /**
      * Get a validator for an incoming registration request.
      *
