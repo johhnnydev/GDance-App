@@ -14,6 +14,7 @@ use App\Sibling;
 use App\Violation;
 use App\User;
 use Auth;
+use DB;
 
 class StudentsController extends Controller
 {
@@ -150,8 +151,10 @@ class StudentsController extends Controller
             $about = User::findOrFail($userid)->aboutstudent;        
             $violations = User::findOrFail($userid)->violation;             
             $user_avatar = User::findOrFail($userid)->avatar;             
-            $user = User::findOrFail($userid);             
-            return view('students.show', compact('student', 'father', 'mother', 'guardian', 'siblings', 'schoolrecord', 'orgs', 'about', 'violations', 'user_avatar', 'user'));
+            $user = User::findOrFail($userid);
+
+            $absents = DB::table('absents')->select('subject', 'date')->where('usn', $student->usn)->get();
+            return view('students.show', compact('student', 'father', 'mother', 'guardian', 'siblings', 'schoolrecord', 'orgs', 'about', 'violations', 'user_avatar', 'user', 'absents'));
         }else{
             // deny admin things
             return view('errors.nocantdo');

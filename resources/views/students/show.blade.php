@@ -9,6 +9,10 @@
 				<table class="table table-hover table-responsive">
 					<tbody>
 						<tr>
+							<td><b>USN</b></td>
+							<td colspan="3"></td>
+						</tr>
+						<tr>
 							<td><b>Name</b></td>
 							<td></td>
 							<td><b>Gender</b></td>
@@ -64,6 +68,10 @@
 				<h4>Personal Data</h4>
 				<table class="table table-hover table-responsive">
 					<tbody>
+						<tr>
+							<td><b>USN</b></td>
+							<td colspan="3">{{$student->usn}}</td>
+						</tr>
 						<tr>
 							<td><b>Name</b></td>
 							<td>{{$student->first_name}} {{$student->middle_name}} {{$student->last_name}}</td>
@@ -754,6 +762,39 @@
 						@endforeach
 					</tbody>
 				</table>
+			@endif
+			<h3>Absents</h3>
+			@if(count($absents) == 0)
+				<table class="table table-hover table-responsive">
+					<thead class="thead">
+						<tr>
+							<td><b>Subject</b></td>
+							<td><b>Date</b></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: center;" colspan="2">No absents yet</td>
+						</tr>
+					</tbody>
+				</table>
+			@else
+				<table class="table table-hover table-responsive">
+				<thead class="thead">
+					<tr>
+						<td><b>Subject</b></td>
+						<td><b>Date</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($absents as $absent)
+						<tr>
+							<td>{{ $absent->subject }}</td>
+							<td>{{ date('F j, Y', strtotime($absent->date)) }}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
 			@endif
 		</div> {{-- end of first column --}}
 		<div class="col-2">

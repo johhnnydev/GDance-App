@@ -60,3 +60,7 @@ Route::post('message/send', 'smsController@send'); // sms send
 
 Route::get('/report', 'ReportController@showReport');
 Route::post('/report', 'ReportController@processReport');
+
+Route::get('/absentreport', 'AbsentReport@showForm');
+Route::post('/absentreport', 'AbsentReport@processReport');
+

@@ -8,6 +8,8 @@ use Auth;
 use Image;
 use File;
 use Validator;
+use App\Absent;
+use DB;
 
 class ProfileController extends Controller
 {
@@ -40,10 +42,20 @@ class ProfileController extends Controller
         // if($father == NULL){
         //     return 'Wala kang tatay oy!!';
         // }
-
-
+        if($student){
+            // return 'student record exists';
+            $absents = DB::table('absents')->select('subject', 'date')->where('usn', $student->usn)->get();
+        }else{
+            $absents = NULL;
+            // return 'student record does not exists';
+        }
+        // find absent record based on usn
+        // $absents = Absent::select('subject', 'date')->where('usn', $student->usn)->get();
+        
+        // return $absent;
+        // return $student->usn;
         // return $student, father, mother, guardian, siblings;
-    	return view('profile', compact('student', 'father', 'mother', 'guardian', 'siblings', 'schoolrecord', 'orgs', 'about', 'violations', 'appointments', 'user_avatar'));
+    	return view('profile', compact('student', 'father', 'mother', 'guardian', 'siblings', 'schoolrecord', 'orgs', 'about', 'violations', 'appointments', 'user_avatar', 'absents'));
     }
 
 

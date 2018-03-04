@@ -67,6 +67,10 @@
                             {{-- Add Absents --}}
                         </li>
                         <li class="nav-item">
+                            <a class="{{ Request::is('absentreport') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('absentreport') }}"><i class="fa fa-empire icon-sidebar" aria-hidden="true"></i>Absent Report</a>
+                            {{-- ABsent report --}}
+                        </li>
+                        <li class="nav-item">
                             <a class="{{ Request::is('appointments') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('appointments') }}"><i class="fa fa-calendar icon-sidebar" aria-hidden="true"></i>Appointments</a>
                             {{-- Appointments --}}
                         </li>

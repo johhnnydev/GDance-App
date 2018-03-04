@@ -40,7 +40,7 @@
                     </div>
 				</div>
 			</div>
-            <input class="btn btn-primary" style="cursor: pointer;" type="submit" value="submit">
+            <input class="btn btn-primary" style="cursor: pointer;" type="submit" value="Submit">
 		{!! Form::close() !!}
 	</div>
 </div>

@@ -13,8 +13,12 @@
 		<div class="col-10">
 			@if($student == NULL)
 				<h3>Personal Data <small><a href="/students/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
+						<tr>
+							<td><b>USN</b></td>
+							<td colspan="3"></td>
+						</tr>
 						<tr>
 							<td><b>Name</b></td>
 							<td></td>
@@ -72,6 +76,10 @@
 				<table class="table table-hover table-responsive">
 					<tbody>
 						<tr>
+							<td><b>USN</b></td>
+							<td colspan="3">{{$student->usn}}</td>
+						</tr>
+						<tr>
 							<td><b>Name</b></td>
 							<td>{{$student->first_name}} {{$student->middle_name}} {{$student->last_name}}</td>
 							<td><b>Gender</b></td>
@@ -126,7 +134,7 @@
 			@endif
 			@if($father == NULL)
 				<h3>Father Information <small><a href="/father/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -176,7 +184,7 @@
 				</table>
 			@else
 				<h3>Father Information <small><a href="/father/{{$father->id}}/edit">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -227,7 +235,7 @@
 			@endif
 			@if($mother == NULL)
 				<h3>Mother Information <small><a href="/mother/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -277,7 +285,7 @@
 				</table>		
 			@else
 				<h3>Mother Information <small><a href="/mother/{{$mother->id}}/edit">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -328,7 +336,7 @@
 			@endif
 			@if($guardian == NULL)
 				<h3>Guardian Information <small><a href="/guardian/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -378,7 +386,7 @@
 				</table>
 			@else
 				<h3>Guardian Information <small><a href="/guardian/{{ $guardian->id }}/edit">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tbody>
 						<tr>
 							<td><b>Name</b></td>
@@ -429,7 +437,7 @@
 			@endif
 			<h3>Siblings Information <small><a href="/sibling/create">Add</a></small></h3>
 			@if(count($siblings) == 0)		  	
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td><b>Name</b></td>
@@ -444,7 +452,7 @@
 						</tr>
 				</table>
 			@else
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td><b>Name</b></td>
@@ -466,7 +474,7 @@
 			@endif
 			@if($schoolrecord == NULL)
 				<h3>Scholastic Records <small><a href="/schoolrecord/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td></td>
@@ -512,7 +520,7 @@
 				</table>
 			@else
 				<h3>Scholastic Records <small><a href="/schoolrecord/{{$schoolrecord->id}}/edit">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td></td>
@@ -559,7 +567,7 @@
 			@endif
 			<h3>Organizational Affiliations <small><a href="/orgs/create">Add</a></small></h3>
 			@if(count($orgs) == 0)
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td><b>Name of Organization</b></td>
@@ -576,7 +584,7 @@
 					</tbody>
 				</table>
 			@else
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead>
 						<tr>
 							<td><b>Name of Organization</b></td>
@@ -601,7 +609,7 @@
 			@endif
 			@if($about == NULL)
 				<h3>About Yourself <small><a href="/aboutstudent/create">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tr>
 						<td><b>Interest and Hobbies</b></td>
 						<td></td>
@@ -633,7 +641,7 @@
 				</table>
 			@else
 				<h3>About Yourself <small><a href="/aboutstudent/{{$about->id}}/edit">Edit</a></small></h3>
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<tr>
 						<td><b>Interest and Hobbies</b></td>
 						<td>{{$about->interest_hobbies}}</td>
@@ -666,7 +674,7 @@
 			@endif
 			<h3 id="SDA">Student Disciplinary Action Form <small>Office of Student Affairs</small></h3>
 			@if(count($violations) == 0)
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead class="thead">						
 						<tr>
 							<td><b>Nature of Offense</b></td>
@@ -683,7 +691,7 @@
 					</tbody>
 				</table>
 			@else
-				<table class="table table-hover table-responsive">
+				<table class="table  table-hover table-responsive">
 					<thead class="thead">						
 						<tr>
 							<td><b>Nature of Offense</b></td>
@@ -696,7 +704,63 @@
 					<tbody>
 						@foreach($violations as $violation)
 							<tr>
-								<td>{{ $violation->nature_offense }}</td>
+								@if($violation->nature_offense == '1')
+									<td>Failing to proper wear valid ID card while inside the school.</td>
+								@elseif($violation->nature_offense == '2')
+									<td>Using for official school purposes or transaction own ID card, which is neither authorized nor valid.</td>
+								@elseif($violation->nature_offense == '3')
+									<td>Unauthorized stay in, or entry to the school after 9:00 PM.</td>
+								@elseif($violation->nature_offense == '4')
+									<td>Littering</td>
+								@elseif($violation->nature_offense == '5')
+									<td>Unauthorized posting/distributing of leaflets, posters, questionnaires, surveys or similar materials.</td>
+								@elseif($violation->nature_offense == '6')
+									<td>Defamation</td>
+								@elseif($violation->nature_offense == '7')
+									<td>Possession of material that is offensive to morals, contrary to law, public order, good custom, and school policies.</td>
+								@elseif($violation->nature_offense == '8')
+									<td>Engaging in lewd, indecent, obscene, immoral or provocative conduct.</td>
+								@elseif($violation->nature_offense == '9')
+									<td>Stealing</td>
+								@elseif($violation->nature_offense == '10')
+									<td>Bribery</td>
+								@elseif($violation->nature_offense == '11')
+									<td>Possession of dangerous stuff.</td>	
+								@elseif($violation->nature_offense == '12')
+									<td>Destruction of property.</td>
+								@elseif($violation->nature_offense == '13')
+									<td>Deceit</td>
+								@elseif($violation->nature_offense == '14')
+									<td>Possession of alcoholic beverages; entering the school in a state of intoxication.</td>
+								@elseif($violation->nature_offense == '15')
+									<td>Using, possessing, or distributing illicit drugs.</td>
+								@elseif($violation->nature_offense == '16')
+									<td>Possessing, distributing or selling cpoies of offensive, obscene, or harrasing magazines.</td>
+								@elseif($violation->nature_offense == '17')
+									<td>Assault</td>
+								@elseif($violation->nature_offense == '18')
+									<td>Gambling</td>
+								@elseif($violation->nature_offense == '19')
+									<td>Forgery</td>
+								@elseif($violation->nature_offense == '20')
+									<td>Obstruction</td>
+								@elseif($violation->nature_offense == '21')
+									<td>Threat</td>
+								@elseif($violation->nature_offense == '22')
+									<td>Unauthorized use of school facility.</td>
+								@elseif($violation->nature_offense == '23')
+									<td>Unauthorized use of school's name.</td>
+								@elseif($violation->nature_offense == '24')
+									<td>Cheating</td>
+								@elseif($violation->nature_offense == '25')
+									<td>Abusive behavior</td>
+								@elseif($violation->nature_offense == '26')
+									<td>Indecency</td>
+								@elseif($violation->nature_offense == '27')
+									<td>Poor sportsmanship.</td>
+								@else
+									<td>nothing</td>
+								@endif
 								<td>{{ $violation->freq_offense }}</td>
 								<td>{{ $violation->sanction_given }}</td>
 								<td>{{ date('F j, Y', strtotime($violation->created_at)) }}</td>
@@ -705,6 +769,39 @@
 						@endforeach
 					</tbody>
 				</table>
+			@endif
+			<h3>Absents</h3>
+			@if(count($absents) == 0)
+				<table class="table table-hover table-responsive">
+					<thead class="thead">
+						<tr>
+							<td><b>Subject</b></td>
+							<td><b>Date</b></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="text-align: center;" colspan="2">No absents yet</td>
+						</tr>
+					</tbody>
+				</table>
+			@else
+				<table class="table table-hover table-responsive">
+				<thead class="thead">
+					<tr>
+						<td><b>Subject</b></td>
+						<td><b>Date</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($absents as $absent)
+						<tr>
+							<td>{{ $absent->subject }}</td>
+							<td>{{ date('F j, Y', strtotime($absent->date)) }}</td>
+						</tr>
+					@endforeach
+				</tbody>
+			</table>
 			@endif
 		</div> {{-- end of first column --}}
 		<div class="col-2">
