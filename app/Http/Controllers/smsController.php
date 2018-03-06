@@ -31,7 +31,7 @@ class smsController extends Controller
 		]);
 		$recipient = $request->recipient;
 		$body = $request->body;
-		$result = $this->itexmo($recipient, $body,"TR-ALJON183623_71K7K");
+		$result = $this->itexmo($recipient, $body,"TR-JOHNL993408_ZB92D");
 		if ($result == ""){
 			echo "di gumagana";	
 			}else if ($result == 0){
