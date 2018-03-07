@@ -771,7 +771,7 @@
 				</table>
 			@endif
 			<h3>Absents</h3>
-			@if(count($absents) == 0)
+			@if($absents == NULL)
 				<table class="table table-hover table-responsive">
 					<thead class="thead">
 						<tr>
