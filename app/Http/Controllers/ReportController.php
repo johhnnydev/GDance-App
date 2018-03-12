@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Excel;
+// use PDF;
 
 class ReportController extends Controller
 {
@@ -52,10 +53,14 @@ class ReportController extends Controller
         // don't use the line above it doesn't work
         // fix by "cyberformed"
         // https://github.com/Maatwebsite/Laravel-Excel/issues/1151
+
+        // dd($violations->get()->toArray());
+        // $result = $violations->get()->toArray();
+        
         $result = json_decode( json_encode($violations->get()), true);
+        // dd($result);
 
         // return $violations;
-
         Excel::create('violations_report', function($excel) use($result) {
 
             $excel->setTitle('violations');
@@ -63,23 +68,12 @@ class ReportController extends Controller
             $excel->setDescription('info file');
 
             $excel->sheet('Sheet1', function($sheet) use($result) {
+
                 $sheet->fromArray($result, null, 'A1', false. false);
+                $sheet->row(1, array(
+                    'USN', 'Nature of Offense', 'Frequency of Offense', 'Sanction Given', 'Time Issued'
+                ));
             });
         })->download('xlsx');
-
-        // return 'shieshie';
-    	// $nature = $request->input('nature_offense');
-    	// $freq = $request->input('freq_offense'); 
-    	// $year = $request->input('year');
-    	// $month = $request->input('month');
-
-    	// execute this if all the parameters are present
-    	// if ($freq != NULL) {
-	    // 	$violations = DB::table('violations')->where('nature_offense', $nature)->where('freq_offense', $freq)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
-    	// }else{
-    	// 	//if the user want all violations that have the same nature
-    	// 	$violations = DB::table('violations')->where('nature_offense', $nature)->whereYear('created_at', $year)->whereMonth('created_at', $month)->get();
-    	// }
-    	// return $violations;
     }
 }

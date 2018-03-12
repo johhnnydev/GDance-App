@@ -71,7 +71,8 @@ class ViolationController extends Controller
             'grade_section' => 'required',
             'nature_offense' => 'required|max:27',
             'freq_offense' => 'required',
-            'sanction_given' => 'required|string'
+            'sanction_given' => 'required|string',
+            'description' => 'sometimes|required'
         ],[
             'grade_section.required' => 'The Grade and Section field is required.',
             'nature_offense.required' => 'The Nature of Offense field is required.',
@@ -81,7 +82,10 @@ class ViolationController extends Controller
         ]);
         // get the user id of the user entered
         $usn = $request->input('usn');
-        $student = Students::where('usn', $usn)->first();        
+        $student = Students::where('usn', $usn)->first(); 
+        if($student == null){
+            return back()->with('message', 'The student must have atleast a personal info.');
+        }   
         $user = Students::find($student->id)->user;
         // return $user;
 

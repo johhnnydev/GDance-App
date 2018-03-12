@@ -59,24 +59,24 @@
                             {{-- Add user --}}
                         </li>
                         <li class="nav-item">
-                            <a class="{{ Request::is('violation/create') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('violation/create') }}"><i class="fa fa-empire icon-sidebar" aria-hidden="true"></i>Add Violation</a>
+                            <a class="{{ Request::is('violation/create') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('violation/create') }}"><i class="fa fa-plus-circle icon-sidebar" aria-hidden="true"></i>Add Violation</a>
                             {{-- Add violation --}}
                         </li>
                         <li class="nav-item">
-                            <a class="{{ Request::is('absent/create') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('absent/create') }}"><i class="fa fa-empire icon-sidebar" aria-hidden="true"></i>Add Absent</a>
+                            <a class="{{ Request::is('report') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('report') }}"><i class="fa fa-area-chart icon-sidebar" aria-hidden="true"></i>Violation Report</a>
+                            {{-- Monthy report --}}
+                        </li>
+                        <li class="nav-item">
+                            <a class="{{ Request::is('absent/create') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('absent/create') }}"><i class="fa fa-plus-circle icon-sidebar" aria-hidden="true"></i>Add Absent</a>
                             {{-- Add Absents --}}
                         </li>
                         <li class="nav-item">
-                            <a class="{{ Request::is('absentreport') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('absentreport') }}"><i class="fa fa-empire icon-sidebar" aria-hidden="true"></i>Absent Report</a>
+                            <a class="{{ Request::is('absentreport') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('absentreport') }}"><i class="fa fa-area-chart icon-sidebar" aria-hidden="true"></i>Absent Report</a>
                             {{-- ABsent report --}}
                         </li>
                         <li class="nav-item">
                             <a class="{{ Request::is('appointments') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('appointments') }}"><i class="fa fa-calendar icon-sidebar" aria-hidden="true"></i>Appointments</a>
                             {{-- Appointments --}}
-                        </li>
-                        <li class="nav-item">
-                            <a class="{{ Request::is('report') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('report') }}"><i class="fa fa-area-chart icon-sidebar" aria-hidden="true"></i>Monthy Report</a>
-                            {{-- Monthy report --}}
                         </li>
                         <li class="nav-item">
                             <a class="{{ Request::is('message') ? 'nav-link color active' : 'nav-link color' }}" href="{{ url('message') }}"><i class="fa fa-paper-plane icon-sidebar" aria-hidden="true"></i>Message Someone</a>
