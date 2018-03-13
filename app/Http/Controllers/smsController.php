@@ -25,6 +25,7 @@ class smsController extends Controller
 	}
 	public function send(Request $request)
 	{
+		return $request->all();
 		$this->validate($request, [
 			'recipient' => array('required', 'regex:/^(09|\+639)\d{9}$/'),
 			'body' => 'required|max:255'
