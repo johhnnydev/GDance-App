@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-3{{ $errors->has('status') ? ' has-error' : '' }}">
             {{Form::label('status', 'Status', ['class' => 'col-form-label'])}}
-            {{Form::select('status', ['Pending' => 'Pending', 'Accepted' => 'Accepted', 'Rescheduled' => 'Rescheduled'], $appointment->status, ['class' => 'form-control', 'placeholder' => 'Status'])}}
+            {{Form::select('status', ['Pending' => 'Pending', 'Accepted' => 'Accepted', 'Rescheduled' => 'Rescheduled', 'Done' => 'Done'], $appointment->status, ['class' => 'form-control', 'placeholder' => 'Status'])}}
             <small class="text-danger">{{ $errors->first('status') }}</small>
         </div>
     </div>

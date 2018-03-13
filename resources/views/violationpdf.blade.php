@@ -4,6 +4,10 @@
 	<meta charset="UTF-8">
 	<title>ViolationPDF</title>
 	<style>
+		body{
+			font-family: sans-serif;
+			font-size: 12px;
+		}
 		table{
 			border-collapse: collapse;
 			border: 1px solid black;
@@ -16,7 +20,7 @@
 	</style>
 </head>
 <body>
-	<table>
+	<table cellpadding="5">
 		<thead>
 			<tr>
 				<th>USN</th>

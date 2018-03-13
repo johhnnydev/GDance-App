@@ -65,14 +65,14 @@ class ViolationController extends Controller
      */
     public function store(Request $request)
     {
-        // return $request->all();
+        return $request->all();
         $this->validate($request, [
             'usn' => 'required|numeric|digits:11',
             'grade_section' => 'required',
             'nature_offense' => 'required|max:27',
             'freq_offense' => 'required',
             'sanction_given' => 'required|string',
-            'description' => 'sometimes|required'
+            'description' => 'required'
         ],[
             'grade_section.required' => 'The Grade and Section field is required.',
             'nature_offense.required' => 'The Nature of Offense field is required.',
@@ -83,6 +83,8 @@ class ViolationController extends Controller
         // get the user id of the user entered
         $usn = $request->input('usn');
         $student = Students::where('usn', $usn)->first(); 
+
+        // can't add violation when student info is blank
         if($student == null){
             return back()->with('message', 'The student must have atleast a personal info.');
         }   
@@ -97,6 +99,7 @@ class ViolationController extends Controller
         $violation->nature_offense = $request->input('nature_offense');
         $violation->freq_offense = $request->input('freq_offense');
         $violation->sanction_given = $request->input('sanction_given');
+        $violation->description = $request->input('description');
         $violation->user_id = $user->id;
         // return $violation;
         $violation->save();
