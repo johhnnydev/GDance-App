@@ -25,6 +25,7 @@
 			<tr>
 				<th>USN</th>
 				<th>Nature of Offense</th>
+				<th>Description</th>
 				<th>Frequency of Offense</th>
 				<th>Sanction Given</th>
 				<th>Time Issued</th>
@@ -34,6 +35,7 @@
 			<tr>
 				<td>{{ $violation->user_name }}</td>
 				<td>{{ $violation->nature_offense }}</td>
+				<td>{{ $violation->description }}</td>
 				<td>{{ $violation->freq_offense }}</td>
 				<td>{{ $violation->sanction_given }}</td>
 				<td>{{ date("M d, Y, g:i a", strtotime($violation->created_at)) }}</td>

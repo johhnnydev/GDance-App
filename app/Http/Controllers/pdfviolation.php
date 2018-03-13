@@ -10,7 +10,7 @@ class pdfviolation extends Controller
 {
     function processReport(Request $request){
 
-    	$violations = DB::table('violations')->select('user_name', 'nature_offense', 'freq_offense', 'sanction_given', 'created_at');
+    	$violations = DB::table('violations')->select('user_name', 'nature_offense', 'freq_offense', 'sanction_given', 'created_at', 'description');
 
         // if nature of offense is present
         // get all violations with this parameter
@@ -40,6 +40,7 @@ class pdfviolation extends Controller
     	// dd($violations);
 
     	$pdf = PDF::loadView('violationpdf', compact('violations'));
+        $pdf->setPaper('letter', 'landscape');
 		return $pdf->stream('pdfviolation.pdf');
     }
 }

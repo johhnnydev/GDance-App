@@ -483,9 +483,9 @@
 				<td><b>Present Concerns</b></td>
 				<td>{{$about->present_concerns}}</td>
 			</tr>
-		</table>
+		</table>	
 	@endif
-	<hr>
+	{{-- <hr>
 	<h3 class="table-title">Student Disciplinary Action Records</h3>
 	<hr>
 	@if(count($violations) == 0)
@@ -528,7 +528,7 @@
 				@endforeach
 			</tbody>
 		</table>
-	@endif
+	@endif --}}
 </div>
 </body>
 </html>

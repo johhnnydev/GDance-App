@@ -63,5 +63,6 @@ Route::post('/report', 'ReportController@processReport');
 
 Route::get('/absentreport', 'AbsentReport@showForm');
 Route::post('/absentreport', 'AbsentReport@processReport');
+Route::post('/absentpdf', 'pdfabsent@processReport');
 
 Route::post('/reportpdf', 'pdfviolation@processReport');

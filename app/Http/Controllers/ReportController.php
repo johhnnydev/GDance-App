@@ -21,7 +21,7 @@ class ReportController extends Controller
         // return request()->all();
 
         // base query
-        $violations = DB::table('violations')->select('user_name', 'nature_offense', 'freq_offense', 'sanction_given', 'created_at');
+        $violations = DB::table('violations')->select('user_name', 'nature_offense', 'description', 'freq_offense', 'sanction_given', 'created_at');
 
         // if nature of offense is present
         // get all violations with this parameter
@@ -71,7 +71,7 @@ class ReportController extends Controller
 
                 $sheet->fromArray($result, null, 'A1', false. false);
                 $sheet->row(1, array(
-                    'USN', 'Nature of Offense', 'Frequency of Offense', 'Sanction Given', 'Time Issued'
+                    'USN', 'Nature of Offense','Description', 'Frequency of Offense', 'Sanction Given', 'Time Issued'
                 ));
             });
         })->download('xlsx');

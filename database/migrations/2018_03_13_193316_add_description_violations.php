@@ -26,7 +26,7 @@ class AddDescriptionViolations extends Migration
     public function down()
     {
         Schema::table('violations', function (Blueprint $table) {
-            $table->string('description');
+            $table->dropColumn('description');
         });
     }
 }

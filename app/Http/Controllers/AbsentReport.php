@@ -16,19 +16,17 @@ class AbsentReport extends Controller
     	// return array($request->from, $request->to);
 
 
-    	// TODO
-    	// require fields to and from
-    	// base query
-    	$this->validate($request, [
+        $this->validate($request, [
             'to' => 'required',
             'from' => 'required',
         ],
         [
-        	'to.required' => 'This field is required.',
-        	'from.required' => 'This field is required.'
+            'to.required' => 'This field is required.',
+            'from.required' => 'This field is required.'
         ]);
 
 
+    	// base query
     	$absents = DB::table('absents')->select('usn', 'subject', 'date');
 
     	if($request->has('usn')){

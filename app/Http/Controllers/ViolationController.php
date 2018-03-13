@@ -65,7 +65,7 @@ class ViolationController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        // return $request->all();
         $this->validate($request, [
             'usn' => 'required|numeric|digits:11',
             'grade_section' => 'required',
@@ -150,6 +150,7 @@ class ViolationController extends Controller
         $violation->nature_offense = $request->input('nature_offense');
         $violation->freq_offense = $request->input('freq_offense');
         $violation->sanction_given = $request->input('sanction_given');
+        $violation->description = $request->input('description');
         // $violation->user_id = $user->id;
         // return $violation;
         $violation->save();

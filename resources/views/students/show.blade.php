@@ -750,6 +750,8 @@
 									<td>Indecency</td>
 								@elseif($violation->nature_offense == '27')
 									<td>Poor sportsmanship.</td>
+								@elseif($violation->nature_offense == '0')
+									<td>{{$violation->description}}</td>
 								@else
 									<td>nothing</td>
 								@endif

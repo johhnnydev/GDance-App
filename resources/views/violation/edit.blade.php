@@ -80,10 +80,20 @@
 				    	<option {{ $violation->nature_offense == '25' ? 'selected ' : '' }} value="25">Abusive behavior</option>
 				    	<option {{ $violation->nature_offense == '26' ? 'selected ' : '' }} value="26">Indecency</option>
 				    	<option {{ $violation->nature_offense == '27' ? 'selected ' : '' }} value="27">Poor sportsmanship.</option>
+				    	<option {{ $violation->nature_offense == '0' ? 'selected ' : '' }} value="0">Others...</option>
 				    </select>
                     <div class="invalid-feedback">
                         {{ $errors->first('nature_offense') }}
                     </div>
+				</div>
+			</div>
+			<div class="form-row">		
+				<div class="col-md-12">
+					{{Form::label('description', 'Description', ['class' => 'col-form-label'])}}
+					<input type="text" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="description" value="{{ $violation->description }}">
+					<div class="invalid-feedback">
+						{{ $errors->first('description') }}
+					</div>
 				</div>
 			</div>
 			<div class="form-row vio-border">		
