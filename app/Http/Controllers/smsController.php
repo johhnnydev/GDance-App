@@ -25,20 +25,40 @@ class smsController extends Controller
 	}
 	public function send(Request $request)
 	{
-		return $request->all();
+		// return $request->all();
+		$results = [];
 		$this->validate($request, [
-			'recipient' => array('required', 'regex:/^(09|\+639)\d{9}$/'),
+			'recipient.*' => array('required', 'regex:/^(09|\+639)\d{9}$/'),
 			'body' => 'required|max:255'
 		]);
-		$recipient = $request->recipient;
-		$body = $request->body;
-		$result = $this->itexmo($recipient, $body,"TR-JOHNL993408_ZB92D");
-		if ($result == ""){
-			echo "di gumagana";	
-			}else if ($result == 0){
-				return back()->with('message', 'Message Succesful');
-			}else{	
-				return back()->with('message', 'Message Failed');
-			}
+		$arr = $request->recipient;
+		foreach($arr as $reciever){
+			$body = $request->body;
+			$result = $this->itexmo($reciever, $body,"TR-JOHNL993408_ZB92D");
+			// $results = array_push($results, $result);	
+			$results[] = $result;
+			// if ($result == ""){
+			// echo "di gumagana";	
+			// }else if ($result == 0){
+			// 	return back()->with('message', 'Message Succesful');
+			// }else{	
+			// 	return back()->with('message', 'Message Failed');
+			// }
+		}
+		// array_push($results, 0);
+		// array_push($results, 0);
+		// return $results;
+		return back()->with('messages', $results);
+		// return $request->recipient;
+		// $recipient = $request->recipient;
+		// $body = $request->body;
+		// $result = $this->itexmo($recipient, $body,"TR-JOHNL993408_ZB92D");
+		// if ($result == ""){
+		// 	echo "di gumagana";	
+		// 	}else if ($result == 0){
+		// 		return back()->with('message', 'Message Succesful');
+		// 	}else{	
+		// 		return back()->with('message', 'Message Failed');
+		// 	}
 		}
 }
