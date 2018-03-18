@@ -210,3 +210,6 @@ input[type=file]{
 input[type="date"]{
   height:2.4rem;
 }
+#form{
+  margin-bottom: 0;
+}

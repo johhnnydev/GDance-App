@@ -20,6 +20,18 @@ class usersController extends Controller
     	}
 	}
 	public function deleteUser($id){
-		return "User: ". $id; 
+		// return "User: ". $id; 
+		$user = User::find($id);
+		// return $user;
+		$user->delete();
+		return back()->with("message", "User Deleted");
 	}
+
+	// public function destroy($id)
+    // {
+    //     $appointment = Appointments::find($id);
+    //     $appointment->delete();
+    //     return redirect('/studentappointments')->with('success', 'Appointment Cancelled');
+    //     // return 'Appointment Cancelled';
+    // }
 }

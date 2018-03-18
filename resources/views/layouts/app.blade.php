@@ -18,8 +18,15 @@
             <li class="nav-item">
                 <a class="nav-link text-primary" href="{{ route('login') }}">Login</a>
             </li>
-        @else            
-            <li class="nav-item text-primary">{{ ucfirst(Auth::user()->name) }} {{ Auth::user()->is_admin == 1 ? ' | Admin' : ' | Student' }}</li>
+        @else
+            @if(Auth::user()->is_admin == 1)
+                <li class="nav-item text-primary">{{ ucfirst(Auth::user()->name) }} | Admin</li>
+            @elseif(Auth::user()->is_admin == 2)
+                <li class="nav-item text-primary">{{ ucfirst(Auth::user()->name) }} | Super Admin</li>
+            @else
+                <li class="nav-item text-primary">{{ ucfirst(Auth::user()->name) }} | Student</li
+            @endif
+            {{--  <li class="nav-item text-primary">{{ ucfirst(Auth::user()->name) }} {{ Auth::user()->is_admin == 1 ? ' | Admin' : ' | Student' }}</li>  --}}
         @endif
         </ul>
     </div>
