@@ -32,6 +32,7 @@
                         <label for="is_admin">User Role</label>                                
                         <select name="is_admin" class="custom-select form-control{{ $errors->has('is_admin') ? ' is-invalid' : '' }}">
                             <option selected="selected" value>User Role</option>
+                            <option value="2">Super Admin</option>
                             <option value="1">Admin</option>
                             <option value="0">Student</option>
                         </select>
