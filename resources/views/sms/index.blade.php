@@ -29,8 +29,8 @@
 					<div class="col">
 						<select id="template" class="custom-select form-control">
 							<option value="">Message Template</option>
-							<option value="Hi, This is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.">Hi, This is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.</option>
-							<option value="Hi this is the guidance office of AMA Fairview. Your presence is needed regarding this matter. Please stop by at my office ASAP.">Hi this is the guidance office of AMA Fairview. Your presence is needed regarding with this matter. Please stop by at my office ASAP.</option>
+							<option value="Hi, this is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.">Hi, this is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.</option>
+							<option value="Hi, this is the guidance office of AMA Fairview. Your presence is needed regarding this matter. Please stop by at my office ASAP.">Hi, this is the guidance office of AMA Fairview. Your presence is needed regarding with this matter. Please stop by at my office ASAP.</option>
 							<option value="Something something pending pending beep boop beep boop">Something something pending pending beep boop beep boop</option>
 						</select>
 					</div>
@@ -56,18 +56,22 @@
 </div>
 <script>
 	function addInput(){
+		// create root element for the input
 		var divFormRow = document.createElement("div");
 		divFormRow.classList.add("form-row");
 
+		// container for input
 		var divCol = document.createElement("div");
 		divCol.classList.add("col");
 
+		// label for the input
 		var label = document.createElement("label");
 		label.classList.add("col-form-label");
 		label.setAttribute("for", "recipient")
 		label.innerHTML = "Receiver";
 		divCol.appendChild(label);
 
+		// create the input
 		var inpuRecipient = document.createElement("input");
 		inpuRecipient.setAttribute("type", "tel");
 		inpuRecipient.setAttribute("pattern", "^(09|\\+639)\\d{9}$");
@@ -75,18 +79,15 @@
 		inpuRecipient.setAttribute("name", "recipient[]");
 		inpuRecipient.setAttribute("required", ""); 
 		inpuRecipient.classList.add("form-control", "recipients");
-		// inpuRecipient.addEventListener("keyup", isValid);
 		divCol.appendChild(inpuRecipient);
-
-		var divFeedback = document.createElement("div");
-		divFeedback.classList.add("invalid-feedback");
-		divCol.appendChild(divFeedback);
 
 		divFormRow.appendChild(divCol)
 
+		// create the container for remove button
 		var divCol2 = document.createElement("div");
 		divCol2.classList.add("col-2");
 
+		// create the invisible label for spacing
 		var labelHidden = document.createElement("label");
 		labelHidden.style.visibility = "hidden";
 		labelHidden.classList.add("col-form-label");
@@ -95,6 +96,7 @@
 
 		divCol2.appendChild(labelHidden);
 
+		// create the remove button
 		var removeButton = document.createElement("button");
 		var removeButtonContent = "<i class='fa fa-user-times' aria-hidden='true'></i> &#8203;";
 		removeButton.style.cursor = "pointer";
@@ -102,16 +104,22 @@
 		removeButton.classList.add("btn", "btn-outline-danger", "form-control");
 		removeButton.innerHTML = removeButtonContent;
 		removeButton.addEventListener("click", removeForm);
-
 		divCol2.appendChild(removeButton);
-		// console.log(removeButton);
 
+		// insert the remove button container to root element
 		divFormRow.appendChild(divCol2);
 		
+		// get the parent and insert the form
 		var formGrp = document.getElementById("formGroup");
 		formGrp.appendChild(divFormRow);
 	}
 
+	// didn't test this extensively but 
+	// as far as i know it works
+	// what this things does is 
+	// it validates all the value of recievers input
+	// in theory the validation will fail
+	// if one of the value is empty/does not match the regex
 	function isRecieversValid(input){
 		for (var i = 0; i < input.length; i++) {
 			var regex = new RegExp("^(09|\\+639)\\d{9}$");
@@ -134,6 +142,11 @@
 			}
 		}
 
+		// check if input has is-invalid class
+		// if one of them has one
+		// the validation will return false/fail
+		// else all of the value in the recievers input
+		// is valid and has passed the validation
 		for (var i = 0; i < input.length; i++) {
 			if(input[i].classList.contains("is-invalid")){
 				return false;
@@ -143,11 +156,17 @@
 		return true;
 	}
 
+	// remove the input field
+	// if the remove button is clicked
 	function removeForm(e){
 		var child = this.parentNode.parentNode;
 		child.parentNode.removeChild(child);
 	}
 
+	// blocks the submission of the form
+	// if validation fails (see validation at the top)
+	// it will not submit the form
+	// else it will submit it
 	function validate(e){
 		var recievers = document.getElementsByClassName("recipients")
 		var msg = document.getElementById("message").value;
@@ -162,6 +181,8 @@
 		}
 	}
 
+	// change the value of the body message
+	// depending on the value of select box
 	function changeMessageBox(){
 		var messageBox = document.getElementById("message");
 		messageBox.value = this.options[this.selectedIndex].value;
@@ -178,5 +199,3 @@
 	sendBtn.addEventListener("click", validate);
 </script>
 @endsection
-
-
