@@ -18,5 +18,8 @@ class usersController extends Controller
 	    	$users = User::paginate(10);
 	    	return view('showusers', compact('users'));
     	}
-    }
+	}
+	public function deleteUser($id){
+		return "User: ". $id; 
+	}
 }

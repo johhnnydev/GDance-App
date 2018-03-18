@@ -13,6 +13,7 @@
 			<td>Name</td>
 			<td>Email</td>
 			<td>Role</td>
+			<td></td>
 		</tr>
 	</thead>
 	<tbody>
@@ -25,7 +26,15 @@
 				<td>Student</td>
 			@elseif($user->is_admin == 1)
 				<td>Admin</td>
+			@elseif($user->is_admin == 2)
+				<td>Superadmin</td>		
 			@endif
+			<td>
+				{!! Form::open(['id' => 'form', 'action' => ['usersController@deleteUser', $user->id], 'method' => 'POST']) !!}
+					{{Form::hidden('_method', 'DELETE')}}
+					{{Form::submit('Delete', ['class' => 'cursor-h btn btn-danger btn-sm'])}}
+				{!! Form::close() !!}
+			</td>
 		</tr>
 	@endforeach
 	</tbody>

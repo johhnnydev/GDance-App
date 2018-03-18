@@ -57,6 +57,7 @@ class RegisterController extends Controller
     // override stuff
     public function register(Request $request)
     {
+        // return $request->all();
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
         return redirect('/users')->with('message', 'User created succesfully');

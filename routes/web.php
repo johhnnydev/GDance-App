@@ -15,6 +15,11 @@ Route::get('/getname', 'nameController@findname');
 Route::get('/', 'PagesController@getIndex');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/users', 'usersController@showUsers');
+Route::delete('/users/delete/{id}', 'usersController@deleteUser');
+// Route::delete('users/delete/{id}', function($id)
+// {
+//     return 'User '.$id;
+// });
 
 Route::get('/appointments', 'appointmentsController@showAppointments'); // admin appointments view
 
@@ -66,3 +71,5 @@ Route::post('/absentreport', 'AbsentReport@processReport');
 Route::post('/absentpdf', 'pdfabsent@processReport');
 
 Route::post('/reportpdf', 'pdfviolation@processReport');
+
+// Route::delete('/deleteuser/{$id}/', 'deleteUsersController@deleteUser');
