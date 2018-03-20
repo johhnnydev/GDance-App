@@ -21,8 +21,20 @@ class PDFController extends Controller
 	    $orgs = User::findOrFail($id)->org;
 	    $about = User::findOrFail($id)->aboutstudent;        
 	    $violations = User::findOrFail($id)->violation;
-        // return $user;
+		// return $user;
+		// return array(
+		// 	'student' => $student, 
+		// 	'father'=> $father,
+		// 	'mother'=> $mother, 
+		// 	'guardian' => $guardian, 
+		// 	'siblings' => $siblings, 
+		// 	'schoolrecord' => $schoolrecord, 
+		// 	'orgs' => $orgs, 
+		// 	'about' => $about, 
+		// 	'violations' => $violations
+		// );
 		$pdf = PDF::loadView('pdf.studentprofile', compact('student', 'father', 'mother', 'guardian', 'siblings', 'schoolrecord', 'orgs', 'about', 'violations'));
+		// return $pdf;
 		return $pdf->stream('studentprofile.pdf');
     }
 }

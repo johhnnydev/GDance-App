@@ -51,7 +51,7 @@
 				<div class="col">
 				    {{Form::label('nature_offense', 'Nature of Offense', ['class' => 'col-form-label'])}}
 				    {{-- <input placeholder="Nature of Offense" class="form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}" type="number" name="nature_offense" min="1" max="27"> --}}
-				    <select name="nature_offense" class="custom-select form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}">
+					<select id="select" name="nature_offense" class="custom-select form-control{{ $errors->has('nature_offense') ? ' is-invalid' : '' }}">
 				    	<option selected="selected" value>Nature of Offense</option>
 				    	<option {{ $violation->nature_offense == '1' ? 'selected ' : '' }} value="1">Failing to proper wear valid ID card while inside the school.</option>
 				    	<option {{ $violation->nature_offense == '2' ? 'selected ' : '' }} value="2">Using for official school purposes or transaction own ID card, which is neither authorized nor valid.</option>
@@ -90,7 +90,7 @@
 			<div class="form-row">		
 				<div class="col-md-12">
 					{{Form::label('description', 'Description', ['class' => 'col-form-label'])}}
-					<input type="text" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="description" value="{{ $violation->description }}">
+					<input id="description" type="text" name="description" class="form-control{{ $errors->has('description') ? ' is-invalid' : '' }}" placeholder="description" value="{{ $violation->description }}">
 					<div class="invalid-feedback">
 						{{ $errors->first('description') }}
 					</div>
@@ -106,9 +106,27 @@
 				</div>
 			</div>
 		{{-- hack and simulate don't remove--}}
-	    {{Form::hidden('_method', 'PUT')}}
+		{{Form::hidden('_method', 'PUT')}}
+		<a class="btn btn-danger" href="{{ URL::previous() }}">Cancel</a>		
 		{{Form::submit('Submit', ['class' => 'btn btn-primary'])}}          
 		{!! Form::close() !!}
 	</div>
 </div>
+<script>
+	$('#select').change(function(){
+		curVal = $( "#select option:selected" ).val();
+
+		curText = $( "#select option:selected" ).text();
+		console.log("Current Value: "+curVal);
+		console.log("Current Text: "+curText);
+
+		if(curVal == 0 || curVal == null){
+			var desVal = '';
+		}else{
+			var desVal = curText;
+		}
+
+		$('#description').val(desVal);
+	});
+</script>
 @endsection

@@ -45,6 +45,13 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="row mt-2">
+					<div class="col">
+						<span id="charcount" class="btn btn-sm btn-info"></span>
+					</div>
+				</div>
+
 				<div style="margin-top: 10px;" class="row">
 					<div class="col">
 						<button id="sendButton" style="width: 100%; cursor: pointer;" class="btn btn-primary">Send</button>
@@ -116,9 +123,9 @@
 
 	// didn't test this extensively but 
 	// as far as i know it works
-	// what this things does is 
 	// it validates all the value of recievers input
 	// in theory the validation will fail
+	// what this things does is 
 	// if one of the value is empty/does not match the regex
 	function isRecieversValid(input){
 		for (var i = 0; i < input.length; i++) {
@@ -147,12 +154,17 @@
 		// the validation will return false/fail
 		// else all of the value in the recievers input
 		// is valid and has passed the validation
+		console.log(input.length);
+		if(input.length == 0){
+			return false;
+		}
+
 		for (var i = 0; i < input.length; i++) {
 			if(input[i].classList.contains("is-invalid")){
 				return false;
 			}
 		}
-
+		
 		return true;
 	}
 
@@ -168,11 +180,19 @@
 	// it will not submit the form
 	// else it will submit it
 	function validate(e){
-		var recievers = document.getElementsByClassName("recipients")
+		var recievers = document.getElementsByClassName("recipients");
 		var msg = document.getElementById("message").value;
 
 		var recieversstatus = isRecieversValid(recievers);
-		if(recieversstatus && msg){
+
+		var bodyStatus = maxChars();
+		console.log("RecieverStatus: " + recieversstatus);
+		console.log("MessageStatus: " + msg);
+		console.log("BodyStatus: " + bodyStatus);
+		console.log("Resolve Value" + recieversstatus && msg && bodyStatus);
+		// e.preventDefault();
+		// return false;
+		if(recieversstatus && msg && bodyStatus){
 			console.log("Submit Form");
 		}else{
 			console.log("Don't Submit Form");
@@ -186,8 +206,25 @@
 	function changeMessageBox(){
 		var messageBox = document.getElementById("message");
 		messageBox.value = this.options[this.selectedIndex].value;
-		console.log(this.options[this.selectedIndex].value);
+		// console.log(this.options[this.selectedIndex].value);
 	}
+
+	function maxChars() {
+		var str = document.getElementById("message").value;
+		var strLen = str.length; 
+		console.log("Character count: " + strLen);
+		var charsLeft = 100 - strLen;
+		console.log(100 - strLen);
+		document.getElementById("charcount").innerText = charsLeft + " Characters left.";
+		console.log(strLen);
+		if(strLen > 100){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+
 	
 	var messageTemplate = document.getElementById("template");
 	messageTemplate.addEventListener("change", changeMessageBox);

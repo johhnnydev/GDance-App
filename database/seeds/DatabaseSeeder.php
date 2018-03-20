@@ -189,7 +189,8 @@ class DatabaseSeeder extends Seeder
 				'sanction_given' => "Suspended for 5 days",
 				'user_id' => "2",
 				'created_at' => date('Y-m-d H:i:s'),
-			    'updated_at' => date('Y-m-d H:i:s')
+				'updated_at' => date('Y-m-d H:i:s'),
+				'description' => 'Unauthorized stay in, or entry to the school after 9:00 PM.'
 		    ],
 		    [
 				'user_name' => "15001622500",
@@ -199,9 +200,11 @@ class DatabaseSeeder extends Seeder
 				'sanction_given' => "Subject failed",
 				'user_id' => "2",
 				'created_at' => date('Y-m-d H:i:s'),
-			    'updated_at' => date('Y-m-d H:i:s')
+			    'updated_at' => date('Y-m-d H:i:s'),
+				'description' => 'Unauthorized stay in, or entry to the school after 9:00 PM.'
 		    ]
 		]);
+		
 		DB::table('appointments')->insert([
 			[
 				'agenda' => "Career Consultation",
