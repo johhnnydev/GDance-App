@@ -29,8 +29,7 @@
 					<div class="col">
 						<select id="template" class="custom-select form-control">
 							<option value="">Message Template</option>
-							<option value="Hi, this is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.">Hi, this is the guidance office of AMA Fairview and we would like to invite you to our office concerning of your son/daughter.</option>
-							<option value="Hi, this is the guidance office of AMA Fairview. Your presence is needed regarding this matter. Please stop by at my office ASAP.">Hi, this is the guidance office of AMA Fairview. Your presence is needed regarding with this matter. Please stop by at my office ASAP.</option>
+							<option value="Hi, the guidance office of ama fairview is requesting your presence regarding your daugther/son">Hi, the guidance office of ama fairview is requesting your presence regarding your daugther/son</option>
 							<option value="Something something pending pending beep boop beep boop">Something something pending pending beep boop beep boop</option>
 						</select>
 					</div>
