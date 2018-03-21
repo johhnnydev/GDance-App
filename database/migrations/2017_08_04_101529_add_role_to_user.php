@@ -15,7 +15,7 @@ class AddRoleToUser extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             // A value of zero is considered false. Non-zero values are considered true:
-            $table->boolean('is_admin')->default(0);
+            $table->integer('is_admin')->default(0);
         });
     }
 
