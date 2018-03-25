@@ -32,9 +32,15 @@
                         <label for="is_admin">User Role</label>                                
                         <select name="is_admin" class="custom-select form-control{{ $errors->has('is_admin') ? ' is-invalid' : '' }}">
                             <option selected="selected" value>User Role</option>
-                            <option value="2">Super Admin</option>
-                            <option value="1">Admin</option>
-                            <option value="0">Student</option>
+                            @if(Auth::user()->is_admin == 2)
+                                <option value="2">Super Admin</option>
+                                <option value="1">Admin</option>
+                                <option value="0">Student</option>
+                            @elseif(Auth::user()->is_admin == 1)
+                                {{--  <option value="2">Super Admin</option>  --}}
+                                {{--  <option value="1">Admin</option>  --}}
+                                <option value="0">Student</option>    
+                            @endif
                         </select>
                         <div class="invalid-feedback">
                             {{ $errors->first('is_admin') }}
