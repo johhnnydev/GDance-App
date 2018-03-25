@@ -13,6 +13,7 @@
 			border: 1px solid black;
 			table-layout: fixed;
 			width: 100%; 
+			margin-bottom: 10px;
 		}
 		th,td {
 			border: 1px solid black;
@@ -37,7 +38,7 @@
 				</tr>
 			@endforeach
 		</tbody>
-
 	</table>
+	<em>{{ count($absents) }} absent record found</em>
 </body>
 </html>
