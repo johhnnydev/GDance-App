@@ -23,8 +23,20 @@ class usersController extends Controller
 		// return "User: ". $id; 
 		$user = User::find($id);
 		// return $user;
-		$user->delete();
-		return back()->with("message", "User Deleted");
+		// $user->delete();
+		// return $user;
+		if($user->status == 'active'){
+			$user->status = 'disabled';
+			$user->save();
+			return back()->with("message", "User is now disabled");
+		}
+
+		if($user->status == 'disabled'){
+			$user->status = 'active';
+			$user->save();
+			return back()->with("message", "User is now active");
+		}
+		// return back()->with("message", "User Deleted");
 	}
 
 	// public function destroy($id)

@@ -18,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				{{--  show delete button if user is Superadmin else don't  --}}
+				{{--  show delete button if user isddd Superadmin else don't  --}}
 				@if(Auth::user()->is_admin == 2)
 					@foreach($users as $user)
 						<tr>
@@ -32,9 +32,13 @@
 								<td>Superadmin</td>		
 							@endif
 							<td>
-								{!! Form::open(['id' => 'form', 'action' => ['usersController@deleteUser', $user->id], 'method' => 'POST', 'onsubmit' => 'return confirm("Are you sure you really want to delete the user?");']) !!}
-									{{Form::hidden('_method', 'DELETE')}}
-									{{Form::submit('Delete User', ['class' => 'cursor-h btn btn-danger btn-sm'])}}
+								{!! Form::open(['id' => 'form', 'action' => ['usersController@deleteUser', $user->id], 'method' => 'POST']) !!}
+									{{Form::hidden('_method', 'PUT')}}
+									@if($user->status == 'disabled')
+										{{Form::submit('Enable User', ['class' => 'cursor-h btn btn-success btn-sm'])}}
+									@elseif($user->status == 'active')
+										{{Form::submit('Disable User', ['class' => 'cursor-h btn btn-danger btn-sm'])}}
+									@endif
 								{!! Form::close() !!}
 							</td>
 						</tr>

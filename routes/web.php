@@ -15,7 +15,7 @@ Route::get('/getname', 'nameController@findname');
 Route::get('/', 'PagesController@getIndex');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/users', 'usersController@showUsers');
-Route::delete('/users/delete/{id}', 'usersController@deleteUser');
+Route::put('/users/delete/{id}', 'usersController@deleteUser');
 // Route::delete('users/delete/{id}', function($id)
 // {
 //     return 'User '.$id;
