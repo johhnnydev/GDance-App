@@ -38,6 +38,7 @@ class AbsentReport extends Controller
         }
         // $notjson = $absents->whereBetween('date', array($request->from, $request->to))->get();
         $result = json_decode( json_encode($absents->whereBetween('date', array($request->from, $request->to))->get()), true);
+        
         // return compact('result', 'notjson');
 		Excel::create('AbsentReport', function($excel) use($result) {
 			$excel->setTitle('Absents');

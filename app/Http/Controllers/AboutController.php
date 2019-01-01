@@ -31,7 +31,6 @@ class AboutController extends Controller
     public function create()
     {
         $user_id = Auth::user()->id;
-        // return $userabout; 
         if(User::find($user_id)->aboutstudent == NULL)
         {
             return view('aboutstudent.create');

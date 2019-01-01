@@ -40,7 +40,6 @@ class AppointmentsController extends Controller
     public function create()
     {
         // students only 
-        // return 'faaaaaaaaaak';
         return view('appointments.showAppointmentsForm');
     }
 

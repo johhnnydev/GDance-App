@@ -34,7 +34,7 @@ class smsController extends Controller
 		$arr = $request->recipient;
 		foreach($arr as $reciever){
 			$body = $request->body;
-			$result = $this->itexmo($reciever, $body,"TR-JOHNL993408_ZB92D");
+			$result = $this->itexmo($reciever, $body,"API KEY");
 			// $results = array_push($results, $result);	
 			$results[] = $result;
 			// if ($result == ""){
@@ -52,7 +52,7 @@ class smsController extends Controller
 		// return $request->recipient;
 		// $recipient = $request->recipient;
 		// $body = $request->body;
-		// $result = $this->itexmo($recipient, $body,"TR-JOHNL993408_ZB92D");
+		// $result = $this->itexmo($recipient, $body,"");
 		// if ($result == ""){
 		// 	echo "di gumagana";	
 		// 	}else if ($result == 0){

@@ -124,7 +124,6 @@
 	// as far as i know it works
 	// it validates all the value of recievers input
 	// in theory the validation will fail
-	// what this things does is 
 	// if one of the value is empty/does not match the regex
 	function isRecieversValid(input){
 		for (var i = 0; i < input.length; i++) {
